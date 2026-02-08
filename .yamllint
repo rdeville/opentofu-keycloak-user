@@ -1,0 +1,23 @@
+---
+# For the default configuration, see:
+# https://yamllint.readthedocs.io/en/stable/configuration.html#default-configuration
+extends: default
+
+rules:
+  braces:
+    forbid: non-empty
+  brackets:
+    forbid: non-empty
+  comments-indentation: disable
+  document-end: disable
+  indentation:
+    spaces: 2
+  line-length:
+    max: 120
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
+  quoted-strings:
+    quote-type: double
+    required: only-when-needed
+
+# vim: ft=yaml

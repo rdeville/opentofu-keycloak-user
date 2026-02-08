@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetpack-io/devbox/main/.schema/devbox.schema.json",
+  "packages": {
+    "pre-commit": "latest",
+    "yq-go": "latest",
+    "opentofu": "latest",
+    "terraform-docs": "latest",
+  },
+  "env": {
+  },
+  "shell": {
+    "init_hook": [
+      "./.devbox/init_hook/pre-commit.sh",
+    ]
+  }
+}
+// vim: ft=json5

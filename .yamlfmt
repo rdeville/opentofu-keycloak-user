@@ -1,0 +1,24 @@
+---
+match_type: doublestar
+include:
+  - "**.yaml"
+  - "**.yml"
+  - ".yamlfmt"
+  - ".yamllint"
+exclude:
+  - "**gitlab-ci.yaml"
+  - "**.gitlab-ci.yml"
+
+formatter:
+  type: basic
+  include_document_start: true
+  gitignore_excludes: true
+  retain_line_breaks_single: true
+  max_line_length: 120
+  scan_folded_as_literal: true
+  trim_trailing_whitespace: true
+  eof_newline: true
+  indent_root_array: true
+  force_array_style: block
+
+# vim: ft=yaml

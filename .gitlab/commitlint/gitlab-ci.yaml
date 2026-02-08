@@ -1,0 +1,43 @@
+---
+Lint All Commit Since Default Branch:
+  image: alpine:latest
+  stage: pre-ci
+  before_script: &before_script
+    - apk add --update --no-cache
+        git
+        nodejs
+        npm
+    - npm install
+        @commitlint/cli
+        gitmojis
+  script:
+    # Avoid being in detached state and ensure main is pulled
+    - git fetch --all
+    - git checkout "${CI_DEFAULT_BRANCH}"
+    - git switch "${CI_MERGE_REQUEST_SOURCE_BRANCH_NAME:-$CI_COMMIT_BRANCH}"
+    - npx commitlint --from "${CI_DEFAULT_BRANCH}" --to "${CI_COMMIT_BRANCH}"
+  rules:
+    # Do Not run when called from upstream as upstream calls mean copier update
+    - if: $CI_PIPELINE_SOURCE =~ /(parent_pipeline|pipeline)/
+      when: never
+      # Always run this job to ensure commit follow specific syntax as soon as
+      # possible
+    - when: always
+
+Lint MR Title and Desc:
+  image: alpine:latest
+  stage: pre-ci
+  variables:
+    CI_MERGE_REQUEST_COMMIT: "${CI_MERGE_REQUEST_TITLE}\n\n${CI_MERGE_REQUEST_DESCRIPTION}"
+  before_script: *before_script
+  script:
+    # Ensure MR title and description follow commitlint rules
+    - echo -e "${CI_MERGE_REQUEST_COMMIT}" | npx commitlint
+  rules:
+    # Do Not run when called from upstream CI as its DGS template update
+    - if: $CI_PIPELINE_SOURCE =~ /(parent_pipeline|pipeline)/
+      when: never
+      # Always run this job on MR whatever append to the MR to ensure MR title
+      # and description follow specific syntax as soon as possible
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: always

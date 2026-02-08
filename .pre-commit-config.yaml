@@ -1,0 +1,59 @@
+---
+default_stages:
+  - pre-commit
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-added-large-files
+      - id: fix-byte-order-marker
+      - id: check-case-conflict
+      - id: check-merge-conflict
+        args:
+          - --assume-in-merge
+      - id: check-symlinks
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: forbid-new-submodules
+      - id: forbid-submodules
+      - id: no-commit-to-branch
+      - id: trailing-whitespace
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.1
+    hooks:
+      - id: gitleaks
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: v9.14.0
+    hooks:
+      - id: commitlint
+        additional_dependencies:
+          - gitmojis
+        stages:
+          - commit-msg
+  - repo: https://github.com/google/yamlfmt
+    rev: v0.18.0
+    hooks:
+      - id: yamlfmt
+        exclude: (.*gitlab-ci.y?aml)$
+        files: (.yamlfmt|.yamllint|.*.y?aml)$
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.37.1
+    hooks:
+      - id: yamllint
+        args:
+          - --strict
+          - -c=.yamllint
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.45.0
+    hooks:
+      - id: markdownlint
+        # OpenTofu hooks
+        # ------------------------------------------------------------------------
+  - repo: https://github.com/tofuutils/pre-commit-opentofu
+    rev: v1.0.2
+    hooks:
+      - id: tofu_fmt
+        args:
+          - --args=-recursive
+          - --args=-diff
+      - id: tofu_validate

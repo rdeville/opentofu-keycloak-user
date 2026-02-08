@@ -1,0 +1,20 @@
+---
+Lint Markdown:
+  image: alpine:latest
+  stage: lint
+  before_script:
+    - apk add --update --no-cache
+        git
+        nodejs
+        npm
+    - npm install
+        markdownlint-cli
+  script:
+    - npx markdownlint-cli ./
+  rules:
+    # Do Not run when called from upstream as upstream calls mean copier update
+    - if: $CI_PIPELINE_SOURCE =~ /(parent_pipeline|pipeline)/
+      when: never
+      # Always run this job to ensure commit follow specific syntax as soon as
+      # possible
+    - when: always

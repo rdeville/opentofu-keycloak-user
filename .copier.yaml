@@ -1,0 +1,40 @@
+---
+# Changes here will be overwritten by Copier
+_commit: v0.5.1
+_src_path: git+https://framagit.org/rdeville-public/programs/copier-generic-template
+abuse_mail_code_of_conduct: code+abuse@romaindeville.fr
+ci_engine: gitlab
+copyright:
+  mail: code@romaindeville.fr
+  name: Romain Deville
+gitignores:
+  - Global/Archives
+  - Global/Backup
+  - Global/Cursor
+  - Global/Diff
+  - Global/Emacs
+  - Global/JetBrains
+  - Global/Linux
+  - Global/macOS
+  - Global/PuTTY
+  - Global/Vim
+  - Global/VisualStudioCode
+  - Global/Xcode
+licenses:
+  date:
+    firstYear: 2026
+  primary: MIT
+  secondaries:
+    - BEERWARE
+maintainers:
+  - mail: code@romaindeville.fr
+    name: Romain Deville
+project:
+  baseURL: https://framagit.org/rdeville-public/opentofu
+  desc: "Opentofu module to manage Keycloak user #magic___^_^___line "
+  name: Keycloak User
+  slug: keycloak-user
+security:
+  mail: code+security@romaindeville.fr
+templates:
+  - opentofu
