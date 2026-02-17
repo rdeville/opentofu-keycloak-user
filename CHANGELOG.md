@@ -2,6 +2,30 @@
 
 <!-- version list -->
 
+## v0.1.0 (2026-02-17)
+
+### ✨
+
+- ✨ Add deployment of a keycloak user (!2)
+  ([`4410c9f`](https://framagit.org/rdeville-public/opentofu/keycloak-user/-/commit/4410c9f75ba84f7a03291b64d8068593ffcfbe73))
+
+- ✨ Add deployment of keycloak user
+  ([`546ddc0`](https://framagit.org/rdeville-public/opentofu/keycloak-user/-/commit/546ddc0656c74ae54a870339c0e283cb7329ddf4))
+
+- ✨ Add provider versions constraint
+  ([`c360348`](https://framagit.org/rdeville-public/opentofu/keycloak-user/-/commit/c360348ec28cc930ad9435aa912bd33e34c89a5d))
+
+### 📝
+
+- 📝 Update README with tf-docs and new examples
+  ([`e4e31a2`](https://framagit.org/rdeville-public/opentofu/keycloak-user/-/commit/e4e31a2d8018cf537067f1f554423f5d36131df1))
+
+### 🙈
+
+- 🙈 Update gitignore
+  ([`fd113a1`](https://framagit.org/rdeville-public/opentofu/keycloak-user/-/commit/fd113a1389ae9a49e3f9b34ae506b93c3d068f9c))
+
+
 ## v0.0.1 (2026-02-08)
 
 ### 👷
