@@ -51,7 +51,7 @@ variable "email_verified" {
   Whether the email address was validated or not.
   EOM
 
-  default = false
+  default = null
 }
 
 variable "first_name" {
