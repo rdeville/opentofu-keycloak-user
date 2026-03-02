@@ -269,7 +269,7 @@ Whether the email address was validated or not.
   <p style="border-bottom: 1px solid #333333;">Default</p>
 
   ```hcl
-  false
+  null
   ```
 
   </div>
