@@ -2,6 +2,22 @@
 
 <!-- version list -->
 
+## v0.1.1 (2026-03-02)
+
+### 🐛
+
+- 🐛 Set email_verified value default to null to avoid reinit loop
+  ([`2aac101`](https://framagit.org/rdeville-public/opentofu/keycloak-user/-/commit/2aac101a8ae02ef150fb6f01cb45de2cf3409063))
+
+- 🐛 Set email_verified value default to null to avoid reinit loop (!3)
+  ([`de1b27b`](https://framagit.org/rdeville-public/opentofu/keycloak-user/-/commit/de1b27bf5d26ba23c1b02d40306f46b81e10cfe0))
+
+### 📝
+
+- 📝 Update README with tf-docs
+  ([`53923a1`](https://framagit.org/rdeville-public/opentofu/keycloak-user/-/commit/53923a10ef3b470095f08295410afe4448a615c8))
+
+
 ## v0.1.0 (2026-02-17)
 
 ### ✨
